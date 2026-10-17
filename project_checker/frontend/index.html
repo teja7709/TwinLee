@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Idea Duplicate Checker</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:800px;margin:30px auto;padding:0 16px;background:#f5f7fb;color:#1c2333}
+  h1{color:#2f4a8a} textarea{width:100%;height:110px;padding:10px;font-size:16px;border:1px solid #bbb;border-radius:8px;box-sizing:border-box}
+  button{margin-top:10px;padding:12px 22px;background:#2f4a8a;color:#fff;border:0;border-radius:8px;font-size:16px;cursor:pointer}
+  .card{background:#fff;border-radius:10px;padding:14px;margin-top:14px;box-shadow:0 1px 4px #0002}
+  .score{font-weight:700;color:#2f4a8a} .tag{display:inline-block;padding:4px 12px;border-radius:20px;color:#fff;font-weight:600}
+  .duplicate{background:#c62828}.overlapping{background:#ef8f00}.distinct{background:#2e7d32}
+  li{margin:4px 0} a{color:#2f4a8a}
+</style>
+</head>
+<body>
+<h1>AI Duplicate Project &amp; Idea Detector</h1>
+<textarea id="idea" placeholder="Describe your project idea..."></textarea><br>
+<button onclick="check()">Check my idea</button>
+<div id="out"></div>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const list = a => "<ul>" + (a||[]).map(x => "<li>"+esc(x)+"</li>").join("") + "</ul>";
+
+async function check(){
+  const text = document.getElementById("idea").value.trim();
+  const out = document.getElementById("out");
+  if(!text){ out.innerHTML = "<p>Please type an idea.</p>"; return; }
+  out.innerHTML = "<p>Analysing...</p>";
+  try{
+    const r = await fetch("/check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});
+    const d = await r.json();
+    let html = "";
+    const a = d.analysis;
+    if(a){
+      html += `<div class="card"><span class="tag ${esc(a.verdict)}">${esc(a.verdict)}</span><p>${esc(a.summary)}</p></div>`;
+    } else {
+      html += `<div class="card">AI explanation is unavailable right now. Showing matches only.</div>`;
+    }
+    d.matches.forEach(m=>{
+      const c = a && (a.comparisons||[]).find(x=>x.project===m.name);
+      html += `<div class="card"><span class="score">${m.score}%</span> <a href="${esc(m.url)}" target="_blank">${esc(m.name)}</a>
+        <p>${esc(m.description)}</p>`;
+      if(c) html += `<b>Same:</b>${list(c.same)}<b>Different:</b>${list(c.different)}`;
+      html += `</div>`;
+    });
+    if(a) html += `<div class="card"><b>How to make your idea more unique</b>${list(a.suggestions)}</div>`;
+    out.innerHTML = html;
+  }catch(e){ out.innerHTML = "<p>Error: "+esc(e)+"</p>"; }
+}
+</script>
+</body>
+</html>

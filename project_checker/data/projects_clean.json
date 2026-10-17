@@ -1,0 +1,406 @@
+[
+  {
+    "title": "hackathon-starter",
+    "full_name": "sahat/hackathon-starter",
+    "description": "A boilerplate for Node.js web applications",
+    "topics": [
+      "boilerplate",
+      "hackathon",
+      "hacktoberfest",
+      "nodejs",
+      "oauth2",
+      "starter-kit"
+    ],
+    "language": "JavaScript",
+    "stars": 35253,
+    "url": "https://github.com/sahat/hackathon-starter",
+    "readme": "![](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)\nHackathon Starter\n=======================\n\n[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sahat/hackathon-starter)\n\n**Live Demo**: [Link](https://hackathon-starter-1.ydftech.com)\n\nJump to [What's new?](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)\n\nA boilerplate for **Node.js** web applications.\n\nIf you have attended any hackathons in the past, then you know how much time it takes to get a project started: decide on what to build, pick a programming language, pick a web framework, pick a CSS framework. A while later, you might have an initial project up on GitHub, and only then can other team members start contributing. Or how about doing something as simple as _Sign in with Facebook_ authentication? You can spend hours on it if you are not familiar with how OAuth 2.0 works.\n\nWhen I started this project, my primary focus was on **simplicity** and **ease of use**.\nI also tried to make it as **generic** and **reusable** as possible to cover most use cases of hackathon web apps, without being too specific. In the worst case, you can use this as a learning guide for your projects, if for example you are only interested in **Sign in with Google** authentication and nothing else.\n\n### Testimonials\n\n> [**\"Nice! That README alone is already gold!\"**](https://www.producthunt.com/tech/hackathon-starter#comment-224732)<br>\n> — Adrian Le Bas\n\n> [**\"Awesome. Simply awesome.\"**](https://www.producthunt.com/tech/hackathon-starter#comment-224966)<br>\n> — Steven Rueter\n\n> [**\"I'm using it for a year now and many projects, it's an awesome boilerplate and the project is well maintained!\"**](https://www.producthunt.com/tech/hackathon-starter#comment-228610)<br>\n> — Kevin Granger\n\n> **\"Small world with Sahat's project. We were using his hackathon starter for our hackathon this past weekend and got some prizes. Really handy repo!\"**<br>\n> — Interview candidate for one of the companies I used to work with.\n\n<h4 align=\"center\">Modern Theme</h4>\n\n![](https://lh6.googleusercontent.com/-KQTmCFNK6MM/U7OZpznjDuI/AAAAAAAAERc/h3jR27Uy1lE/w1366-h1006-no/Screenshot+2014-07-02+01.32.22.png)\n\n<h4 align=\"center\">Flatly Bootstrap Theme</h4>\n\n![](https://lh5.googleusercontent.com/-oJ-7bSYisRY/U1a-WhK_LoI/AAAAAAAAECM/a04fVYgefzw/w1474-h1098-no/Screen+Shot+2014-04-22+at+3.08.33+PM.png)\n\n<h4 align=\"center\">API Examples</h4>\n\n![](https://lh5.googleusercontent.com/-BJD2wK8CvC8/VLodBsyL-NI/AAAAAAAAEx0/SafE6o_qq_I/w1818-h1186-no/Screenshot%2B2015-01-17%2B00.25.49.png)\n\n## Table of Contents\n\n- [Features](#features)\n- [Prerequisites](#prerequisites)\n- [Getting Started](#getting-started)\n- [HTTPS Proxy](#https-proxy)\n- [Obtaining API Keys](#obtaining-api-keys)\n- [Web Analytics](#web-analytics)\n- [Open Graph](#open-graph)\n- [Project Structure](#project-structure)\n- [List of Packages](#list-of-packages)\n- [Useful Tools and",
+    "clean": {
+      "problem": "Getting a hackathon project started takes significant time to choose languages, frameworks, and configure authentication like OAuth.",
+      "target_users": "Hackathon attendees and teams",
+      "features": [
+        "Sign in with Facebook authentication",
+        "Sign in with Google authentication",
+        "Modern Theme",
+        "Flatly Bootstrap Theme",
+        "API Examples"
+      ],
+      "tech_stack": [
+        "Node.js",
+        "OAuth 2.0",
+        "Bootstrap"
+      ]
+    }
+  },
+  {
+    "title": "hermes-workspace",
+    "full_name": "outsourc-e/hermes-workspace",
+    "description": "Native web workspace for Hermes Agent — chat, terminal, memory, skills, inspector.",
+    "topics": [
+      "agent-ui",
+      "ai-workspace",
+      "hackathon",
+      "hermes-agent",
+      "nous-research",
+      "react",
+      "typescript"
+    ],
+    "language": "JavaScript",
+    "stars": 6724,
+    "url": "https://github.com/outsourc-e/hermes-workspace",
+    "readme": "<div align=\"center\">\n\n<img src=\"./public/claude-avatar.webp\" alt=\"Hermes Workspace\" width=\"80\" style=\"border-radius: 16px\" />\n<!-- avatar filename retained for cache stability — do not rename without coordinated cache-bust -->\n\n# Hermes Workspace\n\n**Your AI agent's command center — chat, files, memory, skills, and terminal in one place.**\n\n[![Version](https://img.shields.io/badge/version-2.3.0-2557b7.svg)](CHANGELOG.md)\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)\n[![Node](https://img.shields.io/badge/node-%3E%3D22.0.0-brightgreen.svg)](https://nodejs.org/)\n[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-6366F1.svg)](CONTRIBUTING.md)\n\n> Not a chat wrapper. A complete workspace — orchestrate agents, browse memory, manage skills, and control everything from one interface.\n\n> **v2 — zero-fork.** Clone, don't fork. Runs on vanilla [`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent) installed via Nous's own installer. Chat, sessions, memory, skills, jobs, MCP, terminal, dashboard, Agent View, and Operations are all in vanilla parity. **Conductor** uses the dashboard mission API when available and falls back to Workspace-native Swarm dispatch (`mode: native-swarm`) when the dashboard endpoint is absent, preserving zero-fork behavior ([#262](https://github.com/outsourc-e/hermes-workspace/issues/262)).\n\n![Hermes Workspace](./docs/screenshots/splash.png)\n\n</div>\n\n---\n\n## Swarm Mode\n\nHermes Agent Swarm turns the workspace into a live control plane: unlimited Hermes Agents, 1 orchestrator, 0 humans manually dispatching.\nPersistent tmux workers keep context across tasks, rotate safely, and report proof-bearing checkpoints.\nRole-based dispatch routes builders, reviewers, docs, research, ops, triage, QA, and lab lanes without turning Eric into the task router.\nA byte-verified review gate protects release branches before PRs ship.\nAutonomous PR/issue lanes, lab experiments, and the repair playbook keep the machine moving while humans handle judgment.\n\nStart here: [docs/swarm/](./docs/swarm/)\n\n- **Orchestrator Chat** — ask the control plane for one task, a decomposed mission, or a full broadcast.\n- **Multi-Agent Control Plane** — see persistent Hermes Agents, roles, state, runtime, and routing wires in one surface.\n- **Kanban TaskBoard** — plan backlog, ready, running, review, blocked, and done lanes without leaving the workspace.\n- **Reports + Inbox** — review checkpoints, blockers, handoffs, and ready-for-human decisions.\n- **TUI View built in** — attach to tmux-backed workers or fall back to a live shell/log stream.\n\n---\n\n## ✨ What's inside\n\n- 💬 **Chat** — Real-time SSE streaming, tool call rendering, multi-session, markdown + syntax highlighting\n- 🧠 **Memory** — Browse, search, and edit agent memory; markdown live editor\n- 🧩 **Skills** — Browse 2,000+ skills with origin badges, filters, source paths, marketplace\n- 🔌 **MCP** — Full /mcp page (catalog + marketplace + sources), or fallback to local co",
+    "clean": {
+      "problem": "AI agents need a unified command center rather than a chat wrapper to orchestrate agents, browse memory, manage skills, and control operations from one interface.",
+      "target_users": "",
+      "features": [
+        "Orchestrator Chat",
+        "Multi-Agent Control Plane",
+        "Kanban TaskBoard",
+        "Reports and Inbox for checkpoints and blockers",
+        "Persistent tmux workers",
+        "Role-based dispatch",
+        "Byte-verified review gate"
+      ],
+      "tech_stack": [
+        "Node.js",
+        "tmux",
+        "Hermes Agent"
+      ]
+    }
+  },
+  {
+    "title": "graphql-starter-kit",
+    "full_name": "kriasoft/graphql-starter-kit",
+    "description": "💥  Monorepo template (seed project) pre-configured with GraphQL API, PostgreSQL, React, and Joy UI.",
+    "topics": [
+      "api",
+      "boilerplate",
+      "cloud-run",
+      "graphql",
+      "graphql-yoga",
+      "hackathon",
+      "jotai",
+      "joy-ui",
+      "monorepo",
+      "nodejs",
+      "postgres",
+      "postgresql",
+      "pothos",
+      "prisma",
+      "react",
+      "starter-kit",
+      "template",
+      "terraform",
+      "typescript",
+      "yarn"
+    ],
+    "language": "TypeScript",
+    "stars": 3967,
+    "url": "https://github.com/kriasoft/graphql-starter-kit",
+    "readme": "<h1 align=\"center\">\n  <img src=\"https://s.tarkus.me/graphql-logo.png\" width=\"128\" height=\"128\" alt=\"GraphQL\" /><br>\n  GraphQL Starter Kit\n  <br>\n  <a href=\"http://www.typescriptlang.org/\"><img src=\"https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg?style=flat-square\" height=\"20\"></a>\n  <a href=\"http://patreon.com/koistya\"><img src=\"https://img.shields.io/badge/dynamic/json?color=%23ff424d&label=Patreon&style=flat-square&query=data.attributes.patron_count&suffix=%20patrons&url=https%3A%2F%2Fwww.patreon.com%2Fapi%2Fcampaigns%2F233228\" height=\"20\"></a>\n  <a href=\"https://discord.gg/gx5pdvZ7Za\"><img src=\"https://img.shields.io/discord/643523529131950086?label=Chat&style=flat-square\" height=\"20\"></a>\n  <a href=\"https://github.com/kriasoft/graphql-starter-kit/stargazers\"><img src=\"https://img.shields.io/github/stars/kriasoft/graphql-starter-kit.svg?style=social&label=Star&maxAge=3600\" height=\"20\"></a>\n  <a href=\"https://twitter.com/koistya\"><img src=\"https://img.shields.io/twitter/follow/koistya.svg?style=social&label=Follow&maxAge=3600\" height=\"20\"></a>\n</h1>\n\nHigh-performance GraphQL API server, database dev tools, and React front-end.\n\n## Features\n\n- [Monorepo](https://yarnpkg.com/features/workspaces) project structure powered by [Yarn](https://yarnpkg.com/) with [PnP](https://yarnpkg.com/features/pnp).\n- [GraphQL API](https://graphql.org/) powered by [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server), [Pothos GraphQL](https://pothos-graphql.dev/), and [μWebSockets](https://github.com/uNetworking/uWebSockets.js).\n- Authentication and authorization powered by [Google Identity Platform](https://cloud.google.com/identity-platform).\n- Database tooling — seed files, migrations, [Knex.js](https://knexjs.org/) REPL shell, etc.\n- Front-end boilerplate pre-configured with [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/), [React](https://beta.reactjs.org/), and [Joy UI](https://mui.com/joy-ui/getting-started/).\n- Pre-configured dev, test / QA, production, and preview environments.\n- Pre-configured VSCode code snippets and other [VSCode](https://code.visualstudio.com/) settings.\n- The ongoing design and development is supported by these wonderful companies:\n\n<a href=\"https://reactstarter.com/s/1\"><img src=\"https://reactstarter.com/s/1.png\" height=\"60\" /></a>&nbsp;&nbsp;<a href=\"https://reactstarter.com/s/2\"><img src=\"https://reactstarter.com/s/2.png\" height=\"60\" /></a>&nbsp;&nbsp;<a href=\"https://reactstarter.com/s/3\"><img src=\"https://reactstarter.com/s/3.png\" height=\"60\" /></a>\n\n---\n\nThis project was bootstrapped with [GraphQL Starter Kit](https://github.com/kriasoft/graphql-starter-kit).\nBe sure to join our [Discord channel](https://discord.com/invite/bSsv7XM) for assistance.\n\n## Directory Structure\n\n`├──`[`.github`](.github) — GitHub configuration including CI/CD workflows.<br>\n`├──`[`.vscode`](.vscode) — VSCode settings including code snippets, recommended extensions etc.<br>\n`├──`[`app`](./app) — front-end ap",
+    "clean": {
+      "problem": "",
+      "target_users": "",
+      "features": [
+        "Monorepo project structure powered by Yarn with PnP",
+        "GraphQL API powered by GraphQL Yoga, Pothos GraphQL, and μWebSockets",
+        "Authentication and authorization powered by Google Identity Platform",
+        "Database tooling — seed files, migrations, Knex.js REPL shell, etc.",
+        "Front-end boilerplate pre-configured with TypeScript, Vite, React, and Joy UI",
+        "Pre-configured dev, test / QA, production, and preview environments",
+        "Pre-configured VSCode code snippets and other VSCode settings"
+      ],
+      "tech_stack": [
+        "GraphQL",
+        "PostgreSQL",
+        "React",
+        "Joy UI",
+        "TypeScript",
+        "Yarn",
+        "GraphQL Yoga",
+        "Pothos GraphQL",
+        "μWebSockets",
+        "Google Identity Platform",
+        "Knex.js",
+        "Vite",
+        "VSCode"
+      ]
+    }
+  },
+  {
+    "title": "Wifi-Hacking",
+    "full_name": "ankit0183/Wifi-Hacking",
+    "description": "Cyber Security Tool For Hacking Wireless Connections Using Built-In Kali Tools. Supports All Securities (WEP, WPS, WPA, WPA2/TKIP/IES)",
+    "topics": [
+      "crack-handshake",
+      "hackathon",
+      "hacking-tool",
+      "python",
+      "security",
+      "wifi-hacking",
+      "wp8",
+      "wps"
+    ],
+    "language": "Python",
+    "stars": 2747,
+    "url": "https://github.com/ankit0183/Wifi-Hacking",
+    "readme": "[![Python 3.5](https://img.shields.io/badge/Python-3.5-yellow.svg)](http://www.python.org/download/)\n[![python](https://img.shields.io/badge/python-2.7-brightgreen.svg)](https://www.python.org/downloads/release/python-2714/)\n[![OS](https://img.shields.io/badge/Tested%20On-Linux%20%7C%20Android-yellowgreen.svg)](https://termux.com/)\n\n\n\n\n\n\n# Wifi-Hacking.py  ![alt tag](http://icons.iconarchive.com/icons/icons8/ios7/48/Network-Wifi-Logo-icon.png)\n\n\n\nNo Need To Ask Wifi Password, HACK it..! This Cyber Security Tool, Will Hack For You Any Wifi-Password..!\n\n\n[![asciicast](https://asciinema.org/a/362908.svg)](https://asciinema.org/a/362908)\n\n\n## Feutures and Contains :\n\n\n```bash \n1)Start monitor mode\n\n2)Stop monitor mode\n\n3)Scan Networks   \n\n4)Getting Handshake\n\n5)Create wordlist\n\n6)Install Wireless tools                  \n\n7)WPS Networks attacks \n\n8)Scan for WPS Networks\n\n9)Crack Handshake with rockyou.txt\n\n10)Crack Handshake with wordlist\n\n11)Crack Handshake without wordlist\n```\n\n## Tested On :\n\n* Kali Linux\n* BlackArch Linux\n* Ubuntu\n* Kali Nethunter\n* Termux ( Rooted Devices)\n* Parrot OS\n\n\n# Installation\n\n\n### Kali Linux / Ubuntu / Parrot OS\n\n```bash\n1) sudo apt-get update && apt-get install git\n2) sudo git clone https://github.com/ankit0183/Wifi-Hacking\n3) cd Wifi-Hacking/\n4) sudo python3 Wifi-Hacking.py\n```\n\n## Creator\n\n(Ankit Kanojiya) Hey, Dont Forget To say Thanks me :smile:\n\n\n# SCREENSHOT\n\n\n![](Snapshots/0.png)\n![](Snapshots/1.png)\n![](Snapshots/2.png)\n![](Snapshots/3.png)\n![](Snapshots/4.png)\n![](Snapshots/5.png)\n![](Snapshots/6.png)\n![](Snapshots/7.png)\n\n\n\n\n\n# Feel Free To Contact Me.\n\n\n ### if you like my work, Buy me a Cup of Coffee PhonePay/PayTm/GPAy 9768367597\n\n### - [Whats App chat](https://wa.me/+919768367597)\n\n### - [Instagram](https://www.instagram.com/ankit_kanojiiya/)\n\n\n# Disclaimer \n\n\nWifi-Hacking tool not responsible for misuse and for illegal purposes. Use it only for Pentest or Educational purpose :smile: !!!\n\n\n\n> Pull requests are always welcome.. :)  \n\n\n\n\n\n###### Donation\n\nIf this CyberSecurity tool has been useful for you, feel free to thank me by buying me a coffee. :)\n \n \n \n \n### Happy Hacking ( Privacy & Security No Such Things Exists in digital World, We Can Hack Everything )\n\n\n\n\n\n",
+    "clean": {
+      "problem": "Needing to obtain Wi-Fi passwords and hack wireless connections across various security protocols.",
+      "target_users": "Individuals performing penetration testing or educational cybersecurity work",
+      "features": [
+        "Start and stop monitor mode",
+        "Scan networks and scan for WPS networks",
+        "Capture handshakes",
+        "Create wordlists",
+        "Install wireless tools",
+        "WPS network attacks",
+        "Crack handshakes with or without wordlists"
+      ],
+      "tech_stack": [
+        "Python",
+        "Git",
+        "Kali Linux",
+        "BlackArch Linux",
+        "Ubuntu",
+        "Kali Nethunter",
+        "Termux",
+        "Parrot OS"
+      ]
+    }
+  },
+  {
+    "title": "hacklock",
+    "full_name": "noob-hackers/hacklock",
+    "description": "Hack Android Pattern From Termux With This Tool",
+    "topics": [
+      "hack-pattern",
+      "hackathon",
+      "hacklock",
+      "newterm",
+      "noob-friendly",
+      "noobhackers",
+      "pattern-phishing",
+      "phishing-kit",
+      "root",
+      "terminal",
+      "termux",
+      "termux-hacking",
+      "victim-pattern"
+    ],
+    "language": "Shell",
+    "stars": 2498,
+    "url": "https://github.com/noob-hackers/hacklock",
+    "readme": "<p align=\"center\">\n<a href=\"https://bit.ly/3gnUcN3\"><img title=\"Made in INDIA\" src=\"https://img.shields.io/badge/MADE%20IN-INDIA-SCRIPT?colorA=%23ff8100&colorB=%23017e40&colorC=%23ff0000&style=for-the-badge\"></a>\n</p>\n<p align=\"center\">\n<a href=\"https://bit.ly/3gnUcN3\"><img title=\"Made in INDIA\" src=\"https://img.shields.io/badge/Tool-Hacklock-green.svg\"></a>\n<a href=\"https://bit.ly/3gnUcN3\"><img title=\"Version\" src=\"https://img.shields.io/badge/Version-2.0-green.svg?style=flat-square\"></a>\n<a href=\"https://bit.ly/3gnUcN3\"><img title=\"Maintainence\" src=\"https://img.shields.io/badge/Maintained%3F-yes-green.svg\"></a>\n</p>\n<p align=\"center\">\n<a href=\"https://bit.ly/3gnUcN3\"><img title=\"Hacklock\" src=\"https://user-images.githubusercontent.com/49580304/96666403-e4418800-130b-11eb-90bc-938e0825e610.jpg\"></a>\n</p>\n<p align=\"center\">\n<a href=\"https://github.com/noob-hackers\"><img title=\"Github\" src=\"https://img.shields.io/badge/noob-hackers-brightgreen?style=for-the-badge&logo=github\"></a>\n<a href=\"https://rebrand.ly/noobhackers\"><img title=\"YouTube\" src=\"https://img.shields.io/badge/YouTube-Noob Hackers-red?style=for-the-badge&logo=Youtube\"></a>\n</p>\n<p align=\"center\">\n<a href=\"https://github.com/noob-hackers\"><img title=\"Language\" src=\"https://img.shields.io/badge/Made%20with-Bash-1f425f.svg?v=103\"></a>\n<a href=\"https://github.com/noob-hackers\"><img title=\"Followers\" src=\"https://img.shields.io/github/followers/noob-hackers?color=blue&style=flat-square\"></a>\n<a href=\"https://github.com/noob-hackers\"><img title=\"Stars\" src=\"https://img.shields.io/github/stars/noob-hackers/hacklock?color=red&style=flat-square\"></a>\n<a href=\"https://github.com/noob-hackers\"><img title=\"Forks\" src=\"https://img.shields.io/github/forks/noob-hackers/hacklock?color=red&style=flat-square\"></a>\n<a href=\"https://github.com/noob-hackers\"><img title=\"Watching\" src=\"https://img.shields.io/github/watchers/noob-hackers/hacklock?label=Watchers&color=blue&style=flat-square\"></a>\n<a href=\"https://github.com/noob-hackers\"><img title=\"Licence\" src=\"https://img.shields.io/badge/License-MIT-blue.svg\"></a>\n</p>\n\n## ABOUT TOOL :\n\nHacklock is a bash based script which is officially termux from this tool in just one click you can generate pattern phishing tool which can hack victim pattern and. This tool works on both rooted Android device and Non-rooted Android device.\n\n<p align=\"center\"><a href=\"https://rebrand.ly/noobhacktube\"><img title=\"Noob Hackers\" src=\"https://user-images.githubusercontent.com/49580304/117566254-31801e00-b0d3-11eb-860d-5601b1adccb8.jpg\"></a>\n</p>\n\n## AVAILABLE ON :\n\n* Termux\n\n### TESTED ON :\n\n* Termux\n\n### REQUIREMENTS :\n* internet 100 MB\n* php\n* storage 1 GB\n* ngrok\n\n## FEATURES :\n* [+] Real pattern hacking !\n* [+] Updated maintainence !\n* [+] Ngrok link\n* [+] Cloudflare link\n* [+] Easy for Beginners !\n\n## INSTALLATION [Termux] :\n\n* `apt-get update -y`\n* `apt-get upgrade -y`\n* `pkg install python -y`\n* `pkg install python2 -y`\n* `pkg install git -y`\n* `pip install lolcat",
+    "clean": {
+      "problem": "Hacking Android patterns from Termux.",
+      "target_users": "",
+      "features": [
+        "One-click pattern phishing tool generation",
+        "Hacks victim pattern",
+        "Works on rooted Android devices",
+        "Works on non-rooted Android devices"
+      ],
+      "tech_stack": [
+        "Bash",
+        "Termux",
+        "Android"
+      ]
+    }
+  },
+  {
+    "title": "Ethical-Hacking-Tools",
+    "full_name": "hhhrrrttt222111/Ethical-Hacking-Tools",
+    "description": "Complete Listing and Usage of Tools used for Ethical Hacking",
+    "topics": [
+      "burpsuite",
+      "ethical-hacking",
+      "hack",
+      "hackathon",
+      "hacking",
+      "hacking-code",
+      "hacking-tool",
+      "hacking-tools",
+      "hacktoberfest",
+      "hacktoberfest2023",
+      "kali",
+      "kali-linux",
+      "kali-scripts",
+      "kali-setup",
+      "kali-tools",
+      "kalilinux",
+      "metasploit",
+      "parrot",
+      "python",
+      "wireshark"
+    ],
+    "language": null,
+    "stars": 2185,
+    "url": "https://github.com/hhhrrrttt222111/Ethical-Hacking-Tools",
+    "readme": "# Ethical-Hacking-Tools\n<br>\n\n[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)\n\n<br>\n\n![https://github.com/hhhrrrttt222111/Ethical-Hacking-Tools/network/members](https://img.shields.io/github/forks/hhhrrrttt222111/Ethical-Hacking-Tools?color=green) &nbsp;\n![https://github.com/hhhrrrttt222111/Ethical-Hacking-Tools/stargazers](https://img.shields.io/github/stars/hhhrrrttt222111/Ethical-Hacking-Tools?color=red) &nbsp;\n![https://github.com/hhhrrrttt222111/Ethical-Hacking-Tools/watchers](https://img.shields.io/github/watchers/hhhrrrttt222111/Ethical-Hacking-Tools?color=yellow) &nbsp;\n\n### Show some :green_heart: and :star: the Repo to SUPPORT \n<br>\n\n## DOWNLOAD\n### [Kali Linux](https://www.kali.org/downloads/) &nbsp; &nbsp; :dragon:   <br>\n### [Parrot OS](https://parrotsec.org/download/) &nbsp;&nbsp; :parrot:   <br>\n### [Remnux](https://remnux.org/#distro) &nbsp;&nbsp; :bee:\n### [bWAPP](https://sourceforge.net/projects/bwapp/files/bee-box/) &nbsp;&nbsp; :computer:\n### [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) &nbsp;&nbsp; :tropical_drink:\n<br><br>\n\n## What is Hacking? :space_invader:\n #### <i>Hacking is identifying weakness in computer systems or networks to exploit its weaknesses to gain access.</i>\n <p>Hacking can be carried out in many ways. The most common form is the phishing scam, where hackers attempt to gain login names and passwords, or introduce malware into networked computing environments, by tricking users into opening an email attachment or forwarding private information.\nSome of the most serious breaches of recent years, including the Wannacry malware attack, began as phishing scams, affecting not just the target enterprise but associated partners, customers, government agencies and others.</p>\n<br>\n\n## Who is a hacker? :man_technologist:\n<p>A Hacker is a person who finds and exploits the weakness in computer systems and/or networks to gain access. Hackers are usually skilled computer programmers with knowledge of computer security.\nHackers are classified according to the intent of their actions. The following list classifies hackers according to their intent.</p>\n\n* [White hat](https://en.wikipedia.org/wiki/White_hat_(computer_security)) &nbsp; A hacker who gains access to systems with a view to fix the identified weaknesses. They may also perform penetration Testing and vulnerability assessments\n* [Black hat](https://en.wikipedia.org/wiki/Black_hat_(computer_security)) &nbsp; A hacker who gains unauthorized access to computer systems for personal gain. The intent is usually to steal corporate data, violate privacy rights, transfer funds from bank accounts etc.\n* [Grey hat](https://en.wikipedia.org/wiki/Grey_hat) &nbsp; A hacker who is in between ethical and black hat hackers. He/she breaks into computer systems without authority with a view to identify weaknesses and reveal them to the system owner.\n<br>\n\n## What is Ethical-Hacking?\n<p>Ethical Hacking sometimes ca",
+    "clean": {
+      "problem": "",
+      "target_users": "",
+      "features": [
+        "Listing and usage of ethical hacking tools",
+        "Downloads for Kali Linux, Parrot OS, Remnux, bWAPP, and OWASP Juice Shop",
+        "Educational content explaining hacking and phishing scams",
+        "Classification of hackers based on intent"
+      ],
+      "tech_stack": [
+        "Kali Linux",
+        "Parrot OS",
+        "Remnux",
+        "bWAPP",
+        "OWASP Juice Shop"
+      ]
+    }
+  },
+  {
+    "title": "awesome-hackathon-projects",
+    "full_name": "Olanetsoft/awesome-hackathon-projects",
+    "description": "This is a curated list of amazing hackathon projects",
+    "topics": [
+      "awesome",
+      "awesome-list",
+      "hackathon",
+      "hacktoberfest",
+      "hashnode",
+      "hashnode-hackathon",
+      "javascript",
+      "projects",
+      "python",
+      "react"
+    ],
+    "language": null,
+    "stars": 1879,
+    "url": "https://github.com/Olanetsoft/awesome-hackathon-projects",
+    "readme": "# awesome-hackathon-projects\n\n[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)\n[![GitHub issues](https://img.shields.io/github/issues/Olanetsoft/awesome-hackathon-projects?style=plastic)](https://github.com/Olanetsoft/awesome-hackathon-projects/issues)\n[![GitHub forks](https://img.shields.io/github/forks/Olanetsoft/awesome-hackathon-projects?style=plastic)](https://img.shields.io/github/forks/Olanetsoft/web3terms)\n[![GitHub stars](https://img.shields.io/github/stars/Olanetsoft/awesome-hackathon-projects?style=plastic)](https://img.shields.io/github/stars/Olanetsoft/awesome-hackathon-projects)\n[![GitHub watchers](https://img.shields.io/github/watchers/Olanetsoft/awesome-hackathon-projects?style=plastic&label=Watch)](https://github.com/Olanetsoft/awesome-hackathon-projects)\n[![Twitter Follow](https://img.shields.io/twitter/follow/olanetsoft.svg?style=social)](https://twitter.com/olanetsoft)\n\n![Hackathon Image](https://media.istockphoto.com/vectors/hackathlon-vector-illustration-tiny-programmers-competition-person-vector-id1189873851?k=6&m=1189873851&s=612x612&w=0&h=UQVDWFobVXHtcIy_1O7JUEjEodpYRFsaid6H-2Bhrbc=)<br/>\n[image credit](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fhackathon&psig=AOvVaw0DHshJpx-IrIcbZTln7rqF&ust=1609679264778000&source=images&cd=vfe&ved=0CA0QjhxqFwoTCJDt-tyo_e0CFQAAAAAdAAAAABAD)\n\n  <p>\n      Developers from different parts of the world have developed a lot of amazing projects during hackathons. This is a curated list of awesome hackathon projects. 🏆 Projects get updated daily 🏆\n  </p>\n  <p>\n    <i>\n      Want to contribute with some hackathon projects? Awesome! Please, read the <a href=\"contributing.md\">contribution guidelines</a> before contributing. \n      Organizing a hackathon? Sweet! Check out <a href=\"https://github.com/dribdat/awesome-hackathon\">awesome-hackathon</a> for community tips.\n    </i>\n  </p>\n  \n# Projects 💻\n| S/N      | Project |Description |Built by |\n| ----------- | ----------- |----------- |----------- |    \n| 1| [Alkatraz](https://trendster.hashnode.dev/alkatraz-an-app-that-helps-you-to-reach-your-goals-by-managing-your-habits-harperdb-hackathon)| An app that helps you to Reach your goals by managing your Habits| [Nishant Kumar](https://hashnode.com/@Trendster)|     \n| 2| [Analytics](https://amalshaji.hashnode.dev/amalytics-a-tiny-analytics-powered-by-harperdb)| A tiny analytics powered by HarperDB| [Amal Shaji](https://github.com/amalshaji)|     \n| 3| [Anko](https://blog.greenroots.info/anko-a-dads-attempt-to-make-the-daughter-fall-in-love-with-mathematics-cklkz9dic013qgos18evgd9cz)| A dad's attempt to make the daughter fall in love with mathematics| [Tapas Adhikary](https://github.com/atapas)|     \n| 4| [Annonymous feedback](https://unclebigbay.com/introducing-the-anonymous-feedback-platform-powered-by-the-chern-stack) | The Anonymous Feedback Platform",
+    "clean": {
+      "problem": "",
+      "target_users": "",
+      "features": [
+        "Curated list of hackathon projects",
+        "Daily project updates",
+        "Contribution guidelines for adding projects"
+      ],
+      "tech_stack": []
+    }
+  },
+  {
+    "title": "Competitive-Programming",
+    "full_name": "manishbisht/Competitive-Programming",
+    "description": ":pushpin: :books: Solution of competitive programming problems, code templates, Data Structures and Algorithms, hackathons, interviews and much more.",
+    "topics": [
+      "algorithm",
+      "algorithms",
+      "awesome-list",
+      "codechef",
+      "codeforces",
+      "competitive-programming",
+      "cpp",
+      "datastructures",
+      "facebook",
+      "google",
+      "googlecodejam",
+      "hackathon",
+      "hackathons",
+      "hackercup",
+      "hackerrank",
+      "interview",
+      "javascipt",
+      "javascript",
+      "leetcode",
+      "python"
+    ],
+    "language": "C++",
+    "stars": 1767,
+    "url": "https://github.com/manishbisht/Competitive-Programming",
+    "readme": "# Data Structures and Algorithms\n\n-   https://medium.freecodecamp.org/i-built-an-app-that-makes-learning-algorithms-and-data-structures-way-more-fun-46fbb8afacaf\n-   http://www.ideserve.co.in/\n-   https://www.udacity.com/course/data-structures-and-algorithms-in-python--ud513\n\n# Free stuff\n\n-   https://blog.docker.com/2017/05/announcing-docker-student-developer-kit-campus-ambassador-program/\n-   http://www.allitebooks.org/\n\n# Stanford Online Course\n\n-   http://web.stanford.edu/class/archive/cs/cs161/cs161.1168/\n-   http://online.stanford.edu/courses\n\n# Competitive Programming Sites\n\n-   https://www.hackerrank.com/\n-   https://www.hackerearth.com\n-   https://codesignal.com/\n-   https://coderbyte.com/\n-   https://www.codechef.com/\n-   https://www.spoj.com/\n-   https://www.urionlinejudge.com.br/\n-   https://codeforces.com/\n-   https://www.interviewbit.com/courses/programming/\n\n# Javascript\n\n-   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide\n-   https://medium.freecodecamp.com/my-giant-javascript-basics-course-is-now-live-on-youtube-and-its-100-free-9020a21bbc27\n-   https://medium.freecodecamp.com/a-step-by-step-guide-to-making-pure-css-tooltips-3d5a3e237346\n-   https://medium.freecodecamp.com/grabs-front-end-guide-for-large-teams-484d4033cc41\n-   https://github.com/getify/You-Dont-Know-JS\n-   https://medium.freecodecamp.com/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746\n-   https://medium.freecodecamp.org/a-practical-guide-to-fetch-reduce-and-formatting-data-from-an-external-api-283ddd9bfdcb\n-   http://www.javascriptgrammar.com/?v=bio\n-   https://javascript.info/\n-   https://www.interviewbit.com/javascript-cheat-sheet/\n-   https://github.com/Vishal-raj-1/Awesome-JavaScript-Projects\n\n# Javascript Style Guide\n\n-   https://codeburst.io/5-javascript-style-guides-including-airbnb-github-google-88cbc6b2b7aa\n\n# Python\n\n-   https://docs.python.org/3/index.html\n-   https://developers.google.com/edu/python/\n-   https://pythonschool.net/\n-   https://medium.com/@ageitgey/quick-tip-speed-up-your-python-data-processing-scripts-with-process-pools-cf275350163a\n-   https://github.com/LambdaSchool/Intro-Python-I\n-   https://automatetheboringstuff.com/\n-   https://realpython.com\n-   https://awesome-python.com/\n-   https://tutorial.djangogirls.org/en/\n-   https://www.learnpython.org/\n-   https://www.programiz.com/\n-   https://www.interviewbit.com/python-cheat-sheet/\n\n# Web Development\n\n-   https://developers.google.com/web/ilt/pwa/\n-   https://hackernoon.com/the-2019-web-developer-roadmap-ab89ac3c380e\n-   https://medium.com/@sunilsandhu/the-web-developer-roadmap-for-2019-692cb02d36a4\n-   https://medium.com/zerotomastery/web-developer-monthly-july-2019-a65ac4c1e223\n-   https://www.interviewbit.com/blog/web-development-frameworks/\n\n# GitHub\n\n-   https://guides.github.com/introduction/flow/\n-   https://codeburst.io/git-good-part-a-e0d826286a2a\n-   https://codeburst.io/git-good-a-practical-introduction-to-git-and-github-in-git-w",
+    "clean": {
+      "problem": "",
+      "target_users": "",
+      "features": [
+        "Solution of competitive programming problems",
+        "Code templates",
+        "Data Structures and Algorithms resources",
+        "Competitive programming platform links",
+        "JavaScript and Python guides and cheat sheets"
+      ],
+      "tech_stack": [
+        "JavaScript",
+        "Python"
+      ]
+    }
+  },
+  {
+    "title": "laravel-hackathon-starter",
+    "full_name": "unicodeveloper/laravel-hackathon-starter",
+    "description": ":computer: :octocat: A hackathon/MVP boilerplate for laravel web applications. Start your hackathons without hassle.",
+    "topics": [
+      "api",
+      "boilerplate",
+      "demo",
+      "hackathon",
+      "laravel",
+      "mvp",
+      "php",
+      "social-login",
+      "starter",
+      "web-application"
+    ],
+    "language": "PHP",
+    "stars": 1685,
+    "url": "https://github.com/unicodeveloper/laravel-hackathon-starter",
+    "readme": "![](https://cloud.githubusercontent.com/assets/2946769/13175239/6950a682-d709-11e5-910e-b065a6cf5617.jpg)\n\n# Laravel Hackathon Starter - SUSUMU 進\n![](https://img.shields.io/badge/unicodeveloper-approved-brightgreen.svg) [![Build Status](https://img.shields.io/travis/unicodeveloper/laravel-hackathon-starter.svg)](https://travis-ci.org/unicodeveloper/laravel-hackathon-starter) [![Quality Score](https://img.shields.io/scrutinizer/g/unicodeveloper/laravel-hackathon-starter.svg?style=flat-square)](https://scrutinizer-ci.com/g/unicodeveloper/laravel-hackathon-starter)\n\nIf you have attended any hackathons in the past, then you know how much time it takes to get a project started: decide on what to build, pick a programming language, pick a web framework, pick a CSS framework. A while later, you might have an initial project up on GitHub and only then can other team members start contributing. Or how about doing something as simple as *Sign in with Facebook* authentication? You can spend hours on it if you are not familiar with how OAuth 2.0 works.\n\nEven if you are not using this for a hackathon, Laravel Hackathon Starter is sure to save any developer hours or even days of development time and can serve as a learning guide for web developers.\n\nLaravel is a web application framework with expressive, elegant syntax. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.\n\nLaravel Hackathon Starter is a boilerplate application developed with Laravel 5.2 to keep you ahead in hackathons.\n\n<h4 align=\"center\">Modern Theme</h4>\n\n![](https://cloud.githubusercontent.com/assets/2946769/13172250/83f1ff5c-d6f7-11e5-9fb6-abc44ef0b550.png)\n\n<h4 align=\"center\">API Examples</h4>\n\n![](https://cloud.githubusercontent.com/assets/2946769/13172331/d0a46b8c-d6f7-11e5-9aff-954f75133155.png)\n\nTable of Contents\n-----------------\n\n- [Features](#features)\n- [Prerequisites](#prerequisites)\n- [Getting Started](#getting-started)\n- [Generator](#generator)\n- [Obtaining API Keys](#obtaining-api-keys)\n- [Project Structure](#project-structure)\n- [List of Packages](#list-of-packages)\n- [Useful Tools and Resources](#useful-tools-and-resources)\n- [Recommended Design Resources](#recommended-design-resources)\n- [Recommended Laravel Libraries](#recommended-laravel-libraries)\n- [Pro Tips](#pro-tips)\n- [FAQ](#faq)\n- [How It Works](#how-it-works-mini-guides)\n- [Laravel Eloquent Cheatsheet](#laravel-eloquent-cheatsheet)\n- [Deployment](#deployment)\n- [Changelog](#changelog)\n- [Contributing](#contributing)\n- [License](#license)\n\nFeatures\n--------\n\n- **Local Authentication** using Email and Password\n- **OAuth 1.0a Authentication** via Twitter\n- **OAuth 2.0 Authentication** via Facebook, Google, GitHub, LinkedIn, Instagram\n- Flash notifications\n- MVC Project Structure\n- Bootstrap 3\n- Contact Form (powered by Mailgun, Sendgrid or Mandrill)\n- **Account Management**\n - Gravatar\n - Pro",
+    "clean": {
+      "problem": "Starting a hackathon or MVP project takes significant time and effort to configure frameworks and implement basic features like OAuth 2.0 authentication.",
+      "target_users": "Hackathon participants and web developers",
+      "features": [
+        "Modern Theme",
+        "API Examples",
+        "OAuth 2.0 authentication"
+      ],
+      "tech_stack": [
+        "Laravel 5.2",
+        "OAuth 2.0"
+      ]
+    }
+  },
+  {
+    "title": "agentshield",
+    "full_name": "affaan-m/agentshield",
+    "description": "AI agent security scanner. Detect vulnerabilities in agent configurations, MCP servers, and tool permissions. Available as CLI, GitHub Action, ECC plugin, and GitHub App integration. 🛡️",
+    "topics": [
+      "ai-agent",
+      "anthropic",
+      "claude-code",
+      "hackathon",
+      "mcp",
+      "opus",
+      "security"
+    ],
+    "language": "TypeScript",
+    "stars": 1291,
+    "url": "https://github.com/affaan-m/agentshield",
+    "readme": "<div align=\"center\">\n\n<img src=\"./assets/agentshield-logo.png\" alt=\"AgentShield\" width=\"180\" />\n\n# AgentShield\n\n**Security auditor for AI agent configurations**\n\nScans Claude Code setups for hardcoded secrets, permission misconfigs,<br/>\nhook injection, MCP server risks, and agent prompt injection vectors.<br/>\nAvailable as CLI, GitHub Action, and [GitHub App](https://github.com/apps/ecc-tools) integration.\n\n[![npm version](https://img.shields.io/npm/v/ecc-agentshield)](https://www.npmjs.com/package/ecc-agentshield)\n[![npm downloads](https://img.shields.io/npm/dm/ecc-agentshield)](https://www.npmjs.com/package/ecc-agentshield)\n[![tests](https://img.shields.io/badge/tests-passing-brightgreen)]()\n[![coverage](https://img.shields.io/badge/coverage-v8-blue)]()\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)\n\n[Quick Start](#quick-start) · [What It Catches](#what-it-catches) · [API Reference](#api-reference) · [Opus Pipeline](#opus-46-deep-analysis---opus) · [GitHub Action](#github-action) · [Distribution](#distribution) · [MiniClaw](#miniclaw) · [Changelog](./CHANGELOG.md)\n\n<a href=\"https://compute.itomarkets.com\">\n  <img src=\"./assets/ito.svg\" alt=\"Itô Markets\" width=\"180\" />\n</a>\n<br />\n<sub><strong>Preferred compute sponsor:</strong> Run or self-host any open-source model. Itô is ECC's suggested compute provider. Any GPU provider works. ECC only links to the Itô dashboard for sign-in and GPU rental or management; it does not create or manage rentals or provision compute or serving. Managed inference through Itô is not live yet.</sub>\n\n</div>\n\n---\n\n## Why\n\nThe AI agent ecosystem is growing faster than its security tooling. In January 2026 alone:\n\n- **12%** of a major agent skill marketplace was malicious (341 of 2,857 community skills)\n- A **CVSS 8.8** CVE exposed 17,500+ internet-facing instances to one-click RCE\n- The Moltbook breach compromised **1.5M API tokens** across 770,000 agents\n\nDevelopers install community skills, connect MCP servers, and configure hooks without any automated way to audit the security of their setup. AgentShield scans your `.claude/` directory and flags vulnerabilities before they become exploits.\n\nBuilt at the [Claude Code Hackathon](https://cerebralvalley.ai/e/claude-code-hackathon) (Cerebral Valley x Anthropic, Feb 2026). Part of the [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) ecosystem (42K+ stars).\n\n## Quick Start\n\n```bash\n# Scan your Claude Code config (no install required)\nnpx ecc-agentshield scan\n\n# Or install globally\nnpm install -g ecc-agentshield\nagentshield scan\n```\n\nThat's it. AgentShield auto-discovers your `~/.claude/` directory, scans all config files, and prints a graded security report.\n\nDiscovery intentionally skips common generated directories such as `node_modules`, build output, and `.dmux` worktree mirrors so transient copies do not duplicate findings.\n\n```\n  AgentShield Security Report\n\n  Grade: F (0/100)\n\n  Score Breakdown\n  Secrets  ",
+    "clean": {
+      "problem": "Developers install community skills, connect MCP servers, and configure hooks without an automated way to audit the security of their setup.",
+      "target_users": "Developers using AI agents and Claude Code",
+      "features": [
+        "Scan for hardcoded secrets",
+        "Detect permission misconfigurations and tool permission vulnerabilities",
+        "Identify hook injection risks",
+        "Detect MCP server risks",
+        "Flag agent prompt injection vectors",
+        "Available as CLI, GitHub Action, ECC plugin, and GitHub App integration"
+      ],
+      "tech_stack": [
+        "npm",
+        "Claude Code",
+        "GitHub Actions",
+        "GitHub App"
+      ]
+    }
+  }
+]
