@@ -1,54 +1,201 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Idea Duplicate Checker</title>
-<style>
-  body{font-family:system-ui,sans-serif;max-width:800px;margin:30px auto;padding:0 16px;background:#f5f7fb;color:#1c2333}
-  h1{color:#2f4a8a} textarea{width:100%;height:110px;padding:10px;font-size:16px;border:1px solid #bbb;border-radius:8px;box-sizing:border-box}
-  button{margin-top:10px;padding:12px 22px;background:#2f4a8a;color:#fff;border:0;border-radius:8px;font-size:16px;cursor:pointer}
-  .card{background:#fff;border-radius:10px;padding:14px;margin-top:14px;box-shadow:0 1px 4px #0002}
-  .score{font-weight:700;color:#2f4a8a} .tag{display:inline-block;padding:4px 12px;border-radius:20px;color:#fff;font-weight:600}
-  .duplicate{background:#c62828}.overlapping{background:#ef8f00}.distinct{background:#2e7d32}
-  li{margin:4px 0} a{color:#2f4a8a}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>TwinLee · Project Idea Checker</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#121a2b;--panel2:#172238;--line:#273651;--text:#edf3ff;--muted:#a8b5cc;--teal:#52e0c4;--blue:#73a7ff;--amber:#ffd166;--red:#ff7887}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(ellipse at 12% 0%,#153044 0,transparent 42%),radial-gradient(ellipse at 90% 10%,#241a4b 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+    main{width:min(980px,100% - 32px);margin:0 auto;padding:46px 0 56px}
+    .hero{text-align:center;margin-bottom:26px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #31536b;background:#112b3a;color:#a9f5e8;border-radius:999px;padding:6px 13px;font-size:.82rem;font-weight:700;letter-spacing:.04em}
+    h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:16px 0 12px;letter-spacing:-.035em}
+    .hero p{max-width:700px;margin:0 auto;color:var(--muted);font-size:1.06rem}
+    .scope{margin:24px auto 0;max-width:760px;text-align:left;border:1px solid #304361;background:rgba(18,26,43,.84);border-radius:14px;padding:14px 17px;color:#c8d4e8;font-size:.92rem}
+    .scope strong{color:var(--teal)}
+    .panel{background:linear-gradient(155deg,rgba(23,34,56,.96),rgba(15,23,39,.96));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 22px 70px #0005}
+    label{display:block;font-weight:700;margin:0 0 8px}
+    textarea{width:100%;min-height:156px;resize:vertical;background:#0b1220;border:1px solid #344763;border-radius:13px;color:var(--text);padding:15px;font:inherit;line-height:1.55;outline:none}
+    textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px #52e0c424}
+    textarea::placeholder{color:#7787a2}
+    .input-meta{display:flex;justify-content:space-between;gap:12px;margin-top:7px;color:var(--muted);font-size:.84rem}
+    .actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:16px}
+    button{font:inherit;cursor:pointer;border:0;border-radius:11px;padding:11px 18px;font-weight:750;transition:transform .12s ease,filter .12s ease}
+    button:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.08)}
+    button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .primary{background:linear-gradient(110deg,#5be0c4,#8ab4ff);color:#07131d;min-width:185px}
+    .secondary{background:#25334d;color:var(--text);border:1px solid #405472}
+    button:disabled{opacity:.6;cursor:wait}
+    #status{min-height:26px;margin:12px 2px 0;color:var(--muted);text-align:center}
+    #status.error{color:#ff9aa5}
+    .results{margin-top:22px}
+    .results-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 2px 13px}
+    .results-head h2{font-size:1.2rem;margin:0}
+    .coverage{font-size:.86rem;color:var(--muted);text-align:right}
+    .card{background:#111a2a;border:1px solid #2c3b55;border-radius:15px;padding:16px 18px;margin:12px 0}
+    .verdict{display:inline-flex;border-radius:999px;padding:4px 10px;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.045em}
+    .verdict.duplicate{color:#ffdce0;background:#5a202b;border:1px solid #9a3c4b}
+    .verdict.overlapping{color:#ffe8b2;background:#503d19;border:1px solid #8d6d28}
+    .verdict.distinct{color:#bdffe9;background:#123d35;border:1px solid #247662}
+    .summary{font-size:1.03rem;margin:12px 0 6px}
+    .note,.fine{color:var(--muted);font-size:.88rem}
+    .match-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+    .match-top h3{margin:0;font-size:1.03rem;overflow-wrap:anywhere}
+    a{color:#9cc5ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .score{flex:none;border:1px solid #34645e;background:#122d2a;color:#a5f5dc;border-radius:999px;padding:4px 9px;font-size:.82rem;font-weight:800}
+    .meta{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0}
+    .chip{display:inline-flex;padding:3px 9px;border-radius:999px;background:#202d44;color:#c4d2e8;font-size:.78rem}
+    .card p{margin:9px 0;color:#d2dced}
+    details{margin-top:12px;border-top:1px solid #293952;padding-top:10px}
+    summary{cursor:pointer;font-weight:700;color:#c8e3ff}
+    .comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:9px}
+    .comparison h4{margin:0 0 4px;font-size:.82rem;color:var(--teal)}
+    .comparison h4.diff{color:var(--amber)}
+    ul{margin:4px 0;padding-left:19px;color:#c4d2e8}
+    li{margin:3px 0}
+    .empty{color:var(--muted);text-align:center;padding:20px}
+    .footer{text-align:center;color:#8593aa;font-size:.84rem;margin:19px 0 0}
+    @media(max-width:620px){main{width:min(100% - 20px,980px);padding-top:30px}.panel{padding:16px}.comparison{grid-template-columns:1fr}.results-head{align-items:flex-start;flex-direction:column}.coverage{text-align:left}}
+  </style>
 </head>
 <body>
-<h1>AI Duplicate Project &amp; Idea Detector</h1>
-<textarea id="idea" placeholder="Describe your project idea..."></textarea><br>
-<button onclick="check()">Check my idea</button>
-<div id="out"></div>
-<script>
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const list = a => "<ul>" + (a||[]).map(x => "<li>"+esc(x)+"</li>").join("") + "</ul>";
+  <main>
+    <header class="hero">
+      <div class="eyebrow"><span aria-hidden="true">✦</span> TWINLEE · PROJECT IDEA CHECK</div>
+      <h1>See what’s already been built</h1>
+      <p>Describe your project idea to find the closest projects in the saved GitHub collection, see shared themes, and identify directions to explore.</p>
+      <div class="scope" id="scope"><strong>Search scope:</strong> checking the locally saved project collection. This is not a live search of every GitHub repository, and it compares saved descriptions and README text rather than source code.</div>
+    </header>
 
-async function check(){
-  const text = document.getElementById("idea").value.trim();
-  const out = document.getElementById("out");
-  if(!text){ out.innerHTML = "<p>Please type an idea.</p>"; return; }
-  out.innerHTML = "<p>Analysing...</p>";
-  try{
-    const r = await fetch("/check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});
-    const d = await r.json();
-    let html = "";
-    const a = d.analysis;
-    if(a){
-      html += `<div class="card"><span class="tag ${esc(a.verdict)}">${esc(a.verdict)}</span><p>${esc(a.summary)}</p></div>`;
-    } else {
-      html += `<div class="card">AI explanation is unavailable right now. Showing matches only.</div>`;
+    <section class="panel" aria-labelledby="idea-label">
+      <label id="idea-label" for="idea">Describe your project idea</label>
+      <textarea id="idea" maxlength="5000" placeholder="What problem does it solve? Who will use it? What will it do?" aria-describedby="input-help"></textarea>
+      <div class="input-meta"><span id="input-help">Add a few sentences for better matches. Minimum 15 characters.</span><span id="counter" aria-live="polite">0 / 5000</span></div>
+      <div class="actions">
+        <button class="primary" id="check-button" type="button" onclick="checkIdea()">Check against the collection</button>
+        <button class="secondary" type="button" onclick="useSample()">Try a sample</button>
+        <button class="secondary" type="button" onclick="clearIdea()">Clear</button>
+      </div>
+      <div id="status" role="status" aria-live="polite"></div>
+      <section class="results" id="results" aria-live="polite"></section>
+    </section>
+    <p class="footer">A match score ranks text similarity. It is not a probability, originality guarantee, or decision about ownership.</p>
+  </main>
+
+  <script>
+    const idea = document.getElementById("idea");
+    const counter = document.getElementById("counter");
+    const statusBox = document.getElementById("status");
+    const results = document.getElementById("results");
+    const checkButton = document.getElementById("check-button");
+    const scope = document.getElementById("scope");
+    const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+
+    idea.addEventListener("input", () => { counter.textContent = `${idea.value.length} / 5000`; });
+
+    async function loadHealth(){
+      try{
+        const response = await fetch("/health");
+        const data = await response.json();
+        if(response.ok && data.ok){
+          scope.innerHTML = `<strong>Search scope:</strong> checking all <strong>${Number(data.projects_indexed).toLocaleString()}</strong> locally saved projects. This is not a live search of every GitHub repository, and it compares saved descriptions and README text rather than source code.`;
+        }
+      }catch(_error){
+        scope.innerHTML = "<strong>Search scope:</strong> the local project collection status is unavailable. Start the checker server and reload this page.";
+      }
     }
-    d.matches.forEach(m=>{
-      const c = a && (a.comparisons||[]).find(x=>x.project===m.name);
-      html += `<div class="card"><span class="score">${m.score}%</span> <a href="${esc(m.url)}" target="_blank">${esc(m.name)}</a>
-        <p>${esc(m.description)}</p>`;
-      if(c) html += `<b>Same:</b>${list(c.same)}<b>Different:</b>${list(c.different)}`;
-      html += `</div>`;
-    });
-    if(a) html += `<div class="card"><b>How to make your idea more unique</b>${list(a.suggestions)}</div>`;
-    out.innerHTML = html;
-  }catch(e){ out.innerHTML = "<p>Error: "+esc(e)+"</p>"; }
-}
-</script>
+
+    function useSample(){
+      idea.value = "A mobile app that helps small farmers identify crop diseases from leaf photos and find nearby treatment advice in their local language.";
+      counter.textContent = `${idea.value.length} / 5000`;
+      idea.focus();
+    }
+
+    function clearIdea(){
+      idea.value = "";
+      counter.textContent = "0 / 5000";
+      results.innerHTML = "";
+      statusBox.textContent = "";
+      statusBox.className = "";
+      idea.focus();
+    }
+
+    function list(items){
+      return `<ul>${(Array.isArray(items) ? items : []).map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
+    }
+
+    function safeGithubUrl(value){
+      try{
+        const parsed = new URL(value);
+        return parsed.protocol === "https:" && parsed.hostname === "github.com" ? parsed.href : "https://github.com/";
+      }catch(_error){ return "https://github.com/"; }
+    }
+
+    function renderResults(data){
+      const analysis = data.analysis || {};
+      const verdict = ["duplicate","overlapping","distinct"].includes(analysis.verdict) ? analysis.verdict : "distinct";
+      const labels = {duplicate:"Strong text match", overlapping:"Possible overlap", distinct:"No close text match"};
+      const mode = data.search_mode === "semantic embeddings" ? "Semantic embeddings" : "Keyword similarity";
+      const header = `<div class="results-head"><h2>Closest saved projects</h2><div class="coverage">Scanned ${Number(data.projects_scanned || 0).toLocaleString()} · ${esc(mode)} · top ${Number(data.results_returned || 0)}</div></div>`;
+      let html = header + `<article class="card"><span class="verdict ${verdict}">${labels[verdict]}</span><p class="summary">${esc(analysis.summary || "Comparison complete.")}</p>${analysis.note ? `<p class="note">${esc(analysis.note)}</p>` : ""}</article>`;
+      const matches = Array.isArray(data.matches) ? data.matches : [];
+      if(matches.length === 0){
+        html += `<div class="empty">No meaningful text overlap was found in the saved collection. Try adding more detail to your idea.</div>`;
+      }
+      for(const match of matches){
+        const comparison = (analysis.comparisons || []).find(item => item.project === match.name);
+        const topics = Array.isArray(match.topics) ? match.topics.slice(0,8) : [];
+        html += `<article class="card"><div class="match-top"><h3><a href="${esc(safeGithubUrl(match.url))}" target="_blank" rel="noopener noreferrer">${esc(match.name)}</a></h3><span class="score">${Number(match.score || 0)}% match</span></div>`;
+        html += `<div class="meta">${match.language ? `<span class="chip">${esc(match.language)}</span>` : ""}${Number.isFinite(Number(match.stars)) ? `<span class="chip">${Number(match.stars).toLocaleString()} stars</span>` : ""}${topics.map(topic => `<span class="chip">${esc(topic)}</span>`).join("")}</div>`;
+        html += `<p>${esc(match.description || "No description saved.")}</p>`;
+        if(comparison){ html += `<details><summary>Why this result appeared</summary><div class="comparison"><div><h4>Shared terms</h4>${list(comparison.same)}</div><div><h4 class="diff">Idea terms not found in saved text</h4>${list(comparison.different)}</div></div></details>`; }
+        html += `</article>`;
+      }
+      if(Array.isArray(analysis.suggestions) && analysis.suggestions.length){
+        html += `<article class="card"><h3>Ways to explore a distinct direction</h3>${list(analysis.suggestions)}</article>`;
+      }
+      results.innerHTML = html;
+    }
+
+    async function checkIdea(){
+      const text = idea.value.trim();
+      results.innerHTML = "";
+      statusBox.className = "";
+      if(text.length < 15){
+        statusBox.textContent = "Please describe the idea in at least 15 characters.";
+        statusBox.className = "error";
+        idea.focus();
+        return;
+      }
+      if(text.length > 5000){
+        statusBox.textContent = "Please keep the idea under 5,000 characters.";
+        statusBox.className = "error";
+        return;
+      }
+      checkButton.disabled = true;
+      checkButton.textContent = "Searching the collection…";
+      statusBox.textContent = "Comparing your description with the saved projects…";
+      try{
+        const response = await fetch("/check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});
+        const data = await response.json().catch(() => ({}));
+        if(!response.ok) throw new Error(data.error || `The server returned ${response.status}.`);
+        renderResults(data);
+        statusBox.textContent = `Done. Compared against ${Number(data.projects_scanned || 0).toLocaleString()} saved projects.`;
+      }catch(error){
+        statusBox.textContent = error.message || "Could not reach the local checker. Make sure the server is running.";
+        statusBox.className = "error";
+      }finally{
+        checkButton.disabled = false;
+        checkButton.textContent = "Check against the collection";
+      }
+    }
+
+    loadHealth();
+  </script>
 </body>
 </html>
+
