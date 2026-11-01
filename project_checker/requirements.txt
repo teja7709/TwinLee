@@ -1,6 +1,3 @@
-fastapi
-uvicorn[standard]
-numpy
-python-dotenv
-fastembed
-google-genai
+# The default project checker uses only Python's standard library.
+# Optional semantic search: python -m pip install -r backend/requirements.txt
+# Data maintenance tools: python -m pip install -r backend/requirements-tools.txt
