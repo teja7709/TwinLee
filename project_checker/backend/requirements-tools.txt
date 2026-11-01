@@ -1,0 +1,5 @@
+# Optional tools only. The local web app does not require these packages.
+requests
+python-dotenv
+google-genai
+
