@@ -1,0 +1,4 @@
+# Optional: install these to enable local semantic embeddings and rebuild vectors.
+numpy
+fastembed
+
